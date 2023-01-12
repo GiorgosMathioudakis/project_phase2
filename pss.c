@@ -184,7 +184,6 @@ void HT_Delete(int sId){
 /*function searches for node in Hash table*/
 struct SubInfo *HT_LookUp(int sId){
     int pos = Universal_Hash_Function(sId);
-    printf("poutsa\n");
     SL_LookUp(Hash_arr[pos],sId);
 }
 
@@ -359,7 +358,6 @@ struct Info *BST_LookUp(struct Info *root,int iId){
 /*function deletes node from bst given iId*/
 void BST_Delete(struct Info **root,int iId){
     if(BST_LookUp(*root,iId)==NULL){
-        printf("arxidia\n");
         return;
     }
 
@@ -564,9 +562,7 @@ int Insert_Info(struct Group G[MG] ,int iTM,int iId,int* gids_arr,int size_of_gi
  *          1 on failure
  */
 int Subscriber_Registration(int sTM,int sId,int* gids_arr,int size_of_gids_arr){
-    if(HT_LookUp(sId)!=NULL){ //if susbscriber with that Id exists then exit with 1 
-        return 1;
-    }
+
     struct TreeInfo *sgp[MG];
     struct TreeInfo *tgp[MG];
     for(int i=0;i<MG;i++){
@@ -701,9 +697,6 @@ CASES: AN O SGP EINAI NULL KAI O TGP EINAI NULL TOTE DEN UPARXOUN STOIXEIA KAI K
        AN O SGP DEN EINAI NULL TOTE PAW STIN LISTA ,VRISKW TO STOIXEIO POU NA EXEI IDIO TTM ME TON SGP KAI KANW PRINT APO TO EPOMENO PROS TO TELOS 
     */
 int Consume(int sId){
-    if(HT_LookUp(sId)==NULL ){
-        return 1;
-    }
 
     struct SubInfo *current = HT_LookUp(sId);
     for(int i=0;i<MG;i++){
